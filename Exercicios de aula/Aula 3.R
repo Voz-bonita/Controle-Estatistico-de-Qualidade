@@ -54,7 +54,7 @@ min <- round((tma %% 1)*60, 0)
 paste0(h,"h",min,"min")
 
 
-##### Exercício gráfico de controle (Probabilidades)
+##### Exercício grafico de controle (Probabilidades)
 
 ### 2 fora em 3 pontos consecutivos, para entre 2 e 3 desvios-padrão
 fora <- norm_entre(mu = 74, mean = 74, sd = sd, n = 3, qnt_sd = 3) -
@@ -79,7 +79,21 @@ esquerda <- 0.5 - pnorm(lic, mean = media, sd = sd/sqrt(8))
 p <- esquerda^8
 
 
+##### Graficos de controle para media e amplitude
 
+m <- 25 # amostras de tamanho 5
+sum_media <- 1850.028
+media_media <- sum_media/m
+
+amplitude_m <- 0.581 / m
+
+## Media
+LSC <- media_media + 0.577*amplitude_m
+LIC <- media_media - 0.577*amplitude_m
+
+## Amplitude
+LSC <- amplitude_m*2.114
+LIC <- amplitude_m*0
 
 
 
