@@ -59,18 +59,15 @@ paste0(h,"h",min,"min")
 ### 2 fora em 3 pontos consecutivos, para entre 2 e 3 desvios-padrão
 fora <- norm_entre(mu = 74, mean = 74, sd = sd, n = 3, qnt_sd = 3) -
   norm_entre(mu = 74, mean = 74, sd = sd, n = 3, qnt_sd = 2)
-dentro <- norm_entre(mu = 74, mean = 74, sd = sd, n = 3, qnt_sd = 2)
 
-p <- pbinom(1, 3, fora, lower.tail = F)
-p <- dentro*fora*fora * factorial(3)/factorial(2)
+p <- dbinom(2, 3, fora)
 
 
 ### 4 fora em 5 pontos consecutivos, para 1 desvio-padrão
 fora <- norm_entre(mu = 74, mean = 74, sd = sd, n = 5, qnt_sd = 3) -
   norm_entre(mu = 74, mean = 74, sd = sd, n = 5, qnt_sd = 1)
-dentro <- norm_entre(mu = 74, mean = 74, sd = sd, n = 5, qnt_sd = 1)
 
-p <- dentro*fora*fora*fora*fora * factorial(5)/factorial(4)
+p <- dbinom(2, 3, fora)
 
 
 ### 8 pontos consecutivos de um mesmo lado da linha central
