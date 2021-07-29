@@ -75,7 +75,7 @@ p <- dbinom(2, 3, fora)
 as probabilidades a esquerda e a direita sao iguais"
 
 lic <- media - 3*sd/sqrt(8)
-esquerda <- 0.5 - pnorm(lic, mean = media, sd = sd)
+esquerda <- 0.5 - pnorm(lic, mean = media, sd = sd/sqrt(8))
 p <- esquerda^8
 
 
