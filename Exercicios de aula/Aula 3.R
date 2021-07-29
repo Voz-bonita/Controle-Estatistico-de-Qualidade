@@ -81,6 +81,7 @@ p <- esquerda^8
 
 ##### Graficos de controle para media e amplitude
 
+### Exercicio 1
 m <- 25 # amostras de tamanho 5
 sum_media <- 1850.028
 media_media <- sum_media/m
@@ -93,6 +94,22 @@ LIC <- media_media - 0.577*amplitude_m
 
 ## Amplitude
 LSC <- amplitude_m*2.114
+LIC <- amplitude_m*0
+
+
+### Exercicio 2
+m <- 20 # amostras de tamanho 6
+sum_media <- 1480.021
+media_media <- sum_media/m
+
+amplitude_m <- 0.447 / m
+
+## Media
+LSC <- media_media + 0.483*amplitude_m
+LIC <- media_media - 0.483*amplitude_m
+
+## Amplitude
+LSC <- amplitude_m*2.004
 LIC <- amplitude_m*0
 
 
