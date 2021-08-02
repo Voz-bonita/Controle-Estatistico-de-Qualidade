@@ -32,10 +32,9 @@ sd <- 7.979/0.921
 ### 4)
 ## Probabilidade de exceder os limites de controle
 ## Consequentemente, detectar a anomalia
-p <- 1 - (pnorm(710, 693, sd = 12) - pnorm(690, 693, sd = 12))
+p <- 1 - (pnorm(710, 693, sd = 12/sqrt(4)) - pnorm(690, 693, sd = 12/sqrt(4)))
 
 ### 5)
 t <- 1 # Hora
 # 1 a cada 1/p amostras emitira um sinal fora de controle
 cms <- 1/p
-
