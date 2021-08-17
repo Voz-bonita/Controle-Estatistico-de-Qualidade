@@ -28,7 +28,7 @@ CUSUM <- function(X, m0,delta,sd) {
   for (i in seq(1,N,1)) {
     Cd[i+1] <- (X[i] - (m0 + K) + Cd[i]) %>%
       relu()
-    Ce[i+1] <- (X[i] - (m0 + K) + Ce[i]) %>%
+    Ce[i+1] <- ((m0 - K) - X[i] + Ce[i]) %>%
       relu()
 
     if (Cd[i+1]) {
@@ -42,7 +42,16 @@ CUSUM <- function(X, m0,delta,sd) {
     } else {
       Ne[i+1] <- 0
     }
-
   }
+
+  obs <- data.frame(
+    "Xi" = X,
+    "Cd" = Cd[2:(N+1)],
+    "Ce" = Ce[2:(N+1)],
+    "Nd" = Nd[2:(N+1)],
+    "Ne" = Ne[2:(N+1)]
+  )
+
+  return(obs)
 
 }
