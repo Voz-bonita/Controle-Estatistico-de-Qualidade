@@ -1,4 +1,37 @@
 pacman::p_load(dplyr)
+#### Questao 1
+
+n <- 8
+media <- 2000/50
+R_medio <- 250/50
+A2 <- 0.373
+
+### a)
+GC_media <- c(media + A2*R_medio, media, media - A2*R_medio)
+GC_R <- c(R_medio*0.076, R_medio, R_medio*1.924)
+
+### b)
+sdhat <- R_medio/2.704
+media + 3*sdhat
+media - 3*sdhat
+
+### c)
+
+inferior <- 41 - 5
+superior <- 41 + 5
+##  1.6 pecas a cada 100 fica fora das especificacoes
+p1 <- pnorm(inferior, mean = media, sd = sdhat) + pnorm(superior, mean = media, sd = sdhat, lower.tail = F)
+
+Cp <- (superior - inferior) / (6*sdhat)
+1/Cp
+## O processo usa cerca de 111% da faixa de especificacao
+## O processo esta com media desregulada e variancia fora de controle?
+
+### d)
+pnorm(GC_media[3], mean = media, sd = sdhat) +
+  pnorm(GC_media[1], mean = media, sd = sdhat, lower.tail = F)
+
+
 #### Questao 5
 
 relu <- function (xi) {
