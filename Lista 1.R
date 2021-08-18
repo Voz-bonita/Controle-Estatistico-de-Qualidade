@@ -31,6 +31,21 @@ Cp <- (superior - inferior) / (6*sdhat)
 pnorm(GC_media[3], mean = media, sd = sdhat) +
   pnorm(GC_media[1], mean = media, sd = sdhat, lower.tail = F)
 
+#### Questao 2
+
+sd_m <- 1.5
+media <- 20
+
+### a)
+sd_hat <- sd_m/0.940
+
+### b)
+GC_media <- c(media + 1.427*sd_m, media, media - 1.427*sd_m)
+GC_sd <- c(sd_hat*0, sd_hat, sd_hat*2.089)
+
+### c)
+pnorm(GC_media[1], mean = 22, sd = sd_m) -
+  pnorm(GC_media[3], mean = 22, sd = sd_m)
 
 #### Questao 5
 
