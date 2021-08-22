@@ -55,6 +55,19 @@ delta <- p_new - p
 L <- 3
 n <- (L/delta)^2 * p*(1-p)
 
+
+#### Questao 4
+### a)
+p <- 0.07
+n <- 400
+LIC <- p - 3*sqrt(p*(1-p)/n)
+LSC <- p + 3*sqrt(p*(1-p)/n)
+
+### b)
+p_new <- 0.1
+1 - (pbinom(LSC*n, n, p_new) - pbinom(LIC*n, n, p_new))
+
+
 #### Questao 5
 
 relu <- function (xi) {
