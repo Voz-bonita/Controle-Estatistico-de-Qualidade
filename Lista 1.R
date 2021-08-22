@@ -47,6 +47,14 @@ GC_sd <- c(sd_hat*0, sd_hat, sd_hat*2.089)
 pnorm(GC_media[1], mean = 22, sd = sd_m) -
   pnorm(GC_media[3], mean = 22, sd = sd_m)
 
+
+#### Questao 3
+p <- 0.1
+p_new <- 0.2
+delta <- p_new - p
+L <- 3
+n <- (L/delta)^2 * p*(1-p)
+
 #### Questao 5
 
 relu <- function (xi) {
