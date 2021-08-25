@@ -8,10 +8,10 @@ A2 <- 0.373
 
 ### a)
 GC_media <- c(media + A2*R_medio, media, media - A2*R_medio)
-GC_R <- c(R_medio*0.076, R_medio, R_medio*1.924)
+GC_R <- c(R_medio*0.136, R_medio, R_medio*1.864)
 
 ### b)
-sdhat <- R_medio/2.704
+sdhat <- R_medio/2.847
 media + 3*sdhat
 media - 3*sdhat
 
@@ -19,17 +19,18 @@ media - 3*sdhat
 
 inferior <- 41 - 5
 superior <- 41 + 5
-##  1.6 pecas a cada 100 fica fora das especificacoes
+##  11, tendendo a 12, pecas a cada 1000 ficam fora das especificacoes
 p1 <- pnorm(inferior, mean = media, sd = sdhat) + pnorm(superior, mean = media, sd = sdhat, lower.tail = F)
 
 Cp <- (superior - inferior) / (6*sdhat)
 1/Cp
-## O processo usa cerca de 111% da faixa de especificacao
+## O processo usa cerca de 105.4% da faixa de especificacao
+## 5.4% das pecas estao fora dos limites de controle
 ## O processo esta com media desregulada e variancia fora de controle?
 
 ### d)
-pnorm(GC_media[3], mean = media, sd = sdhat) +
-  pnorm(GC_media[1], mean = media, sd = sdhat, lower.tail = F)
+pnorm(GC_media[3], mean = media, sd = sdhat/sqrt(n)) +
+  pnorm(GC_media[1], mean = media, sd = sdhat/sqrt(n), lower.tail = F)
 
 #### Questao 2
 
@@ -37,6 +38,7 @@ sd_m <- 1.5
 media <- 20
 
 ### a)
+n <- 5
 sd_hat <- sd_m/0.940
 
 ### b)
@@ -44,8 +46,8 @@ GC_media <- c(media + 1.427*sd_m, media, media - 1.427*sd_m)
 GC_sd <- c(sd_hat*0, sd_hat, sd_hat*2.089)
 
 ### c)
-pnorm(GC_media[1], mean = 22, sd = sd_m) -
-  pnorm(GC_media[3], mean = 22, sd = sd_m)
+pnorm(GC_media[1], mean = 22, sd = sd_hat/sqrt(n)) -
+  pnorm(GC_media[3], mean = 22, sd = sd_hat/sqrt(n))
 
 
 #### Questao 3
