@@ -1,4 +1,4 @@
-pacman::p_load("purrr", "stringr", "dplyr")
+pacman::p_load("purrr", "dplyr")
 
 n <- 2
 k <- 3
